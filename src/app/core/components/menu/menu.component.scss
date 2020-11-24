@@ -1,0 +1,27 @@
+@import "../../../../styles/imports/settings.imports";
+
+.nav{
+    background-color: $navbar-color;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+
+    &__link{
+        margin: 8px 10px;
+        padding: 10px 30px;
+        text-decoration: none;
+        color: $icon-color;
+        fill: $icon-color;
+
+        &--active{
+            background: $bg-icon-nav 30%;
+            color: $icon-color-active;
+            fill: $icon-color-active;
+            border-radius: 10px;
+        }
+    }
+
+    &__text{
+    }
+}

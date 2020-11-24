@@ -1,0 +1,26 @@
+.footer{
+    background-color: #444444;
+    color: #FFF;
+    text-align: center;
+    padding: 30px;
+ 
+    &__list{
+        list-style: none;
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+
+    &__list__element{
+        display: inline;
+        padding-left: 10px;
+    }
+
+    &__link{
+        color: #FFF;
+        text-decoration: none;
+    }
+
+    &__text{
+
+    }
+}

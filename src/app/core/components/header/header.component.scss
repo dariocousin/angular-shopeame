@@ -1,0 +1,22 @@
+@import "../../../../styles/imports/settings.imports";
+
+.h-title{
+    text-align: center;
+    font-family: redHat-Medium;
+    font-size: 36px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 36px;
+    color: #0b2244;
+    padding: 20px 0;
+
+    &__span{
+        font-family: redHat-Bold;
+        background: rgb(41,121,255);
+        background: linear-gradient(90deg, rgba(41,121,255,1) 0%, rgba(76,88,158,1) 100%);
+        color: $white-bg;
+        padding: 3px 15px;
+        margin-right: 3px;
+        border-radius: 10px;
+    }
+}

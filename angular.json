@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "shopeame-dario"
+    }
+  },
+  "defaultProject": "shopeame-dario",
+  "cli": {
+    "analytics": false
+  }
 }

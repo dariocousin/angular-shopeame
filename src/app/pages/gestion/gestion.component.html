@@ -1,0 +1,12 @@
+<h2>Creación/edición de productos</h2>
+<div>
+    <form>
+        <div>
+            <label for="nombre">Nombre producto: </label>
+            <input type="text" id="nombre" placeholder="{{productDetail.name}}">
+        </div>
+    </form>
+    <div>
+        <app-single-product [singleProduct]="productDetail"></app-single-product>
+    </div>
+</div>
