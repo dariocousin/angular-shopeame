@@ -12,6 +12,8 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { GestionComponent } from './pages/gestion/gestion.component';
 import { GalleryProductsComponent } from './shared/components/gallery-products/gallery-products.component';
 import { SingleProductComponent } from './shared/components/single-product/single-product.component';
+import {RatingModule} from 'primeng/rating';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,12 +26,14 @@ import { SingleProductComponent } from './shared/components/single-product/singl
     ProductosComponent,
     GestionComponent,
     GalleryProductsComponent,
-    SingleProductComponent,
+    SingleProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RatingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

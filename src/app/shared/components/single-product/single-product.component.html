@@ -1,22 +1,20 @@
-<!-- <div class="card">
+<div class="figure">
     <figure class="product__figure">
         <img class="product__img" src="{{singleProduct.image}}" alt="{{singleProduct.name}}">
         <figcaption class="product__figcaption">{{singleProduct.name}}</figcaption>
-        <p>{{singleProduct.description}}</p>
-        <h3>$ {{singleProduct.price}}</h3>
-        <div>
-            <span>Puntuación: {{singleProduct.stars}} </span>
-            <a routerLink="/gestion/{{singleProduct.id}}" >Editar</a>
+        <div class="product_info">
+            <p class="product__info--text" >{{singleProduct.description}}</p>
+            <h3 class="product__info--price">${{singleProduct.price}}</h3>
+            <p-rating 
+                class="product__info--rating"
+                readonly="true"
+                [cancel]="false"
+                [iconOnStyle]="{'color': '#FB8200', 'font-size': '11px'}"
+                [iconOffStyle]="{'color':'#FB8200', 'font-size': '11px'}"
+                [ngModel]="val"
+            ></p-rating>
+            <span class="product__info--value"> {{singleProduct.stars}} </span>
+            <a class="product__info--button" routerLink="/gestion/{{singleProduct.id}}" >Editar</a>
         </div>
     </figure>
-</div> -->
-<div class="card">
-    <img class="card-img-top" src="{{singleProduct.image}}" alt="{{singleProduct.name}}">
-    <div class="card-body">
-        <p class="card-text">{{singleProduct.name}}</p>
-        <p class="card-text" >{{singleProduct.description}}</p>
-        <h3 class="card-title" >${{singleProduct.price}}</h3>
-        <span>Puntuación: {{singleProduct.stars}} </span>
-        <a class="btn btn-outline-primary" routerLink="/gestion/{{singleProduct.id}}" >Editar</a>
-    </div>
 </div>
