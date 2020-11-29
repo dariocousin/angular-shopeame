@@ -1,0 +1,51 @@
+.gestion{
+
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+
+    &__title{
+        width: 75%;
+        margin-bottom: 40px;
+    }
+    
+    &__form{
+        width: 55%;
+        padding-right: 10%;
+        // margin-right: 20px;
+        
+        &--input{
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            width: 100%;
+            padding: 3px;
+        }
+        
+        &--submit{
+            float: right;
+            padding: 5px; 
+            border-radius: 4px;
+            border: 0px;
+            color:white ;
+            background-color: #F89F21; 
+        }
+
+        &--submit:hover{
+            color:#F89F21 ;
+            background-color: white;
+            border: solid 1px #F89F21;
+        }
+    }
+    
+    &__product{
+        border-left: solid 1px #F89F21;
+        padding-left: 10%; 
+
+        &--title{
+            text-align: center;
+        }
+
+    }
+
+}

@@ -13,7 +13,7 @@ import { GestionComponent } from './pages/gestion/gestion.component';
 import { GalleryProductsComponent } from './shared/components/gallery-products/gallery-products.component';
 import { SingleProductComponent } from './shared/components/single-product/single-product.component';
 import {RatingModule} from 'primeng/rating';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     RatingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

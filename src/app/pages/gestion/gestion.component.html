@@ -1,12 +1,41 @@
-<h2>Creación/edición de productos</h2>
-<div>
-    <form>
+<div class="gestion">
+    <h2 class="gestion__title">Creación/edición de productos</h2>
+    <form class="gestion__form" [formGroup]="createChangeFields" (submit)="changesFields()" >
         <div>
-            <label for="nombre">Nombre producto: </label>
-            <input type="text" id="nombre" placeholder="{{productDetail.name}}">
+            <label for="name">Nombre producto: </label>
+            <input *ngIf="newProduct" class="gestion__form--input" type="text" id="name" formControlName="name" placeholder="Por ej: Flor cohete">
+            <input *ngIf="!newProduct" class="gestion__form--input" type="text" id="name" formControlName="name" value="{{productDetail.name}}">
+            <span *ngIf="submittedProduct && !createChangeFields.get('price').valid">Debes rellenar este campo para continuar</span>
+
         </div>
+        <div>
+            <label for="price">Precio: </label>
+            <input *ngIf="newProduct" class="gestion__form--input" type="text" id="price" placeholder="Por ej: 2.34" formControlName="price">
+            <input *ngIf="!newProduct" class="gestion__form--input" type="text" id="price" value="{{productDetail.price}}" formControlName="price">
+            <span *ngIf="submittedProduct && !createChangeFields.get('price').valid">Debes rellenar este campo para continuar</span>
+        </div>
+        <div>
+            <label for="description">Descripción: </label>
+            <input *ngIf="newProduct" class="gestion__form--input" type="text" id="description" placeholder="Por ej: La famosa flor en forma de cohete" formControlName="description">
+            <input *ngIf="!newProduct" class="gestion__form--input" type="text" id="description" value="{{productDetail.description}}" formControlName="description">
+            <span *ngIf="submittedProduct && !createChangeFields.get('description').valid">Debes rellenar este campo para continuar</span>
+        </div>
+        <div>
+            <label for="image">Ruta de la imagen: </label>
+            <input *ngIf="newProduct"class="gestion__form--input" type="text" id="image" placeholder="Por ej: http://floresenformadecohetes.com/cohete.png" formControlName="image">
+            <input *ngIf="!newProduct"class="gestion__form--input" type="text" id="image" value="{{productDetail.image}}" formControlName="image">
+            <span *ngIf="submittedProduct && !createChangeFields.get('image').valid">Debes rellenar este campo para continuar</span>
+        </div>
+        <div>
+            <label for="feedback">Opiniones: </label>
+            <input *ngIf="newProduct"class="gestion__form--input" type="text" id="feedback" placeholder="Por ej: 5.00" formControlName="feedback">
+            <input *ngIf="!newProduct"class="gestion__form--input" type="text" id="feedback" value="{{productDetail.stars}}" formControlName="feedback">
+            <span *ngIf="submittedProduct && !createChangeFields.get('feedback').valid">Debes rellenar este campo para continuar</span>
+        </div>
+        <input class="gestion__form--submit" type="submit" value="Guardar">
     </form>
-    <div>
-        <app-single-product [singleProduct]="productDetail"></app-single-product>
+    <div class="gestion__product">
+        <p class="gestion__product--title" >Preview del producto</p>
+        <app-single-product [singleProduct]="productDetail" [showEditButton]="newProduct"></app-single-product>
     </div>
 </div>

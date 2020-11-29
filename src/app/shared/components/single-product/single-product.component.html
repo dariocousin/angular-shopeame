@@ -1,11 +1,16 @@
 <div class="figure">
     <figure class="product__figure">
-        <img class="product__img" src="{{singleProduct.image}}" alt="{{singleProduct.name}}">
-        <figcaption class="product__figcaption">{{singleProduct.name}}</figcaption>
+        <!-- <img class="product__img" src="{{singleProduct.image}}" alt="{{singleProduct.name}}"> -->
+        <img *ngIf="!showEditButton" class="product__img" src="{{singleProduct.image}}" alt="{{singleProduct.name}}">
+        <img *ngIf="showEditButton" class="product__img" src="../../../../assets/img/productEmpty.png" alt="Product empty example">
+        <figcaption *ngIf="!showEditButton" class="product__figcaption">{{singleProduct.name}}</figcaption>
+        <figcaption *ngIf="showEditButton" class="product__figcaption">Nuevo producto</figcaption>
         <div class="product_info">
-            <p class="product__info--text" >{{singleProduct.description}}</p>
-            <h3 class="product__info--price">${{singleProduct.price}}</h3>
+            <p *ngIf="!showEditButton" class="product__info--text" >{{singleProduct.description}}</p>
+            <h3 *ngIf="showEditButton" class="product__info--price">$ 0.00</h3>
+            <h3 *ngIf="!showEditButton" class="product__info--price">${{singleProduct.price}}</h3>
             <p-rating 
+                *ngIf="!showEditButton"
                 class="product__info--rating"
                 readonly="true"
                 [cancel]="false"
@@ -13,8 +18,9 @@
                 [iconOffStyle]="{'color':'#FB8200', 'font-size': '11px'}"
                 [ngModel]="val"
             ></p-rating>
-            <span class="product__info--value"> {{singleProduct.stars}} </span>
-            <a class="product__info--button" routerLink="/gestion/{{singleProduct.id}}" >Editar</a>
+            <span *ngIf="!showEditButton" class="product__info--value"> {{singleProduct.stars}} </span>
+            <!-- <a class="product__info--button" routerLink="/gestion/{{singleProduct.id}}" >Editar</a> -->
+            <a *ngIf="!showEditButton" class="product__info--button" routerLink="/gestion/{{singleProduct.id}}">Editar</a>
         </div>
     </figure>
 </div>
