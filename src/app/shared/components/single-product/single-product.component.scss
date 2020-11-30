@@ -1,3 +1,5 @@
+@import "../../../../styles/imports/settings.imports";
+
 .product{
     border: solid;
 
@@ -25,7 +27,7 @@
 
         &--text{
             font-size: 11px;
-            color: #19191D;
+            color: $figure-text;
             min-height: 50px;
         }
 
@@ -42,7 +44,7 @@
         &--value{
             font-weight: 500;
             font-size: 14px;
-            color: #5E6366;
+            color: $figure-value;
         }
 
         &--button{
@@ -51,12 +53,12 @@
             border: solid 1px;
             text-decoration: none;
             border-radius: 5px;
-            color: #2264D1;
+            color: $figure-button;
         }
 
         &--button:hover{
-            background-color: #9DC2FF;
-            color: white;
+            background-color: $figure-button-hover;
+            color: $white-bg;
         }
 
     }

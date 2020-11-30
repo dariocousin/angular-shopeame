@@ -1,3 +1,5 @@
+@import "../../../styles/imports/settings.imports";
+
 .gestion{
 
     display: flex;
@@ -27,19 +29,19 @@
             padding: 5px; 
             border-radius: 4px;
             border: 0px;
-            color:white ;
-            background-color: #F89F21; 
+            color: $white-bg ;
+            background-color: $gestion-color; 
         }
 
         &--submit:hover{
-            color:#F89F21 ;
-            background-color: white;
-            border: solid 1px #F89F21;
+            color:$gestion-color ;
+            background-color: $white-bg;
+            border: solid 1px $gestion-color;
         }
     }
     
     &__product{
-        border-left: solid 1px #F89F21;
+        border-left: solid 1px $gestion-color;
         padding-left: 10%; 
 
         &--title{

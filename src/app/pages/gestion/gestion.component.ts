@@ -17,9 +17,15 @@ export class GestionComponent implements OnInit {
 
   productDetail: any = {};
 
-  constructor(private route: ActivatedRoute, private productsServices: ProductsService, private formProducts: FormBuilder) { 
+  fieldsValuesDinamics = {
+    name: '',
+    description: '',
+    price: ''
+  };
+
+  constructor(private route: ActivatedRoute, private productsServices: ProductsService, private formProductsGestion: FormBuilder) { 
     
-    this.createChangeFields = this.formProducts.group(
+    this.createChangeFields = this.formProductsGestion.group(
       {
         name: ['', Validators.required],
         price: ['', Validators.required],
@@ -37,23 +43,41 @@ export class GestionComponent implements OnInit {
       if(id){
         this.productsServices.getSingleProduct(id).subscribe( product => {
           this.productDetail = product;
-          this.newProduct = false;
-          this.createChangeFields.patchValue({ 
-            name: product['name'],
-            price: product['price'],
-            description: product['description'],
-            image: product['image'],
-            feedback: product['stars']
-          });
-        })
+          this.fieldsValuesDinamics.name = product['name'];
+          this.fieldsValuesDinamics.price = product['price'];
+          this.fieldsValuesDinamics.description = product['description'];
+        });
+        // this.createChangeFields.patchValue({ 
+        //   name: this.productDetail.name,
+        //   price: this.productDetail.price,
+        //   description: this.productDetail.description,
+        //   image: this.productDetail.image,
+        //   feedback: this.productDetail.stars
+        // });
+        this.newProduct = false;
+
       }
-    })
+    });
   }
 
 
   changesFields(){
     this.submittedProduct = true;
     this.createChangeFields.value;
+    console.log(this.createChangeFields.value);
+    // http://cdn.onlinewebfonts.com/svg/img_90947.png
+  }
+
+  changeName(valueName: string){
+    this.fieldsValuesDinamics.name = valueName;
+  }
+
+  changePrice(valuePrice: string){
+    this.fieldsValuesDinamics.price = valuePrice;
+  }
+
+  changeDescription(valueDescription: string){
+    this.fieldsValuesDinamics.description = valueDescription;
   }
 
 }

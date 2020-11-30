@@ -1,3 +1,5 @@
+@import "../../../styles/imports/settings.imports";
+
 .products{
     padding: 50px;
 
@@ -10,5 +12,32 @@
 
     &__title{
         font-weight: 700;
+    }
+
+    &__buttons button{
+        padding: 10px 25px;
+        text-align: center;
+        vertical-align: top;
+    }
+
+    &__buttons{
+        margin-bottom: 25px;
+        &--gallery{
+            border-radius: 5px;
+            background-color: $white-bg;
+            fill: $icon-color;
+            box-shadow: 5px 5px 18px $shadow-button;
+            border: none;
+        }
+
+        &--list{
+            background-color: $inactive-button-gallery;
+            border: none;
+        }
+    }
+
+    &__search{
+        margin-top: 5px;
+        padding: 3px;
     }
 }

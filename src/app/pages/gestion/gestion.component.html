@@ -3,21 +3,21 @@
     <form class="gestion__form" [formGroup]="createChangeFields" (submit)="changesFields()" >
         <div>
             <label for="name">Nombre producto: </label>
-            <input *ngIf="newProduct" class="gestion__form--input" type="text" id="name" formControlName="name" placeholder="Por ej: Flor cohete">
-            <input *ngIf="!newProduct" class="gestion__form--input" type="text" id="name" formControlName="name" value="{{productDetail.name}}">
+            <input *ngIf="newProduct" class="gestion__form--input" type="text" id="name" formControlName="name" placeholder="Por ej: Flor cohete" (input)="changeName($event.target.value)" >
+            <input *ngIf="!newProduct" class="gestion__form--input" type="text" id="name" formControlName="name" value="{{productDetail.name}}" (input)="changeName($event.target.value)">
             <span *ngIf="submittedProduct && !createChangeFields.get('price').valid">Debes rellenar este campo para continuar</span>
 
         </div>
         <div>
             <label for="price">Precio: </label>
-            <input *ngIf="newProduct" class="gestion__form--input" type="text" id="price" placeholder="Por ej: 2.34" formControlName="price">
-            <input *ngIf="!newProduct" class="gestion__form--input" type="text" id="price" value="{{productDetail.price}}" formControlName="price">
+            <input *ngIf="newProduct" class="gestion__form--input" type="text" id="price" placeholder="Por ej: 2.34" formControlName="price" (input)="changePrice($event.target.value)">
+            <input *ngIf="!newProduct" class="gestion__form--input" type="text" id="price" value="{{productDetail.price}}" formControlName="price" (input)="changePrice($event.target.value)">
             <span *ngIf="submittedProduct && !createChangeFields.get('price').valid">Debes rellenar este campo para continuar</span>
         </div>
         <div>
             <label for="description">Descripción: </label>
-            <input *ngIf="newProduct" class="gestion__form--input" type="text" id="description" placeholder="Por ej: La famosa flor en forma de cohete" formControlName="description">
-            <input *ngIf="!newProduct" class="gestion__form--input" type="text" id="description" value="{{productDetail.description}}" formControlName="description">
+            <input *ngIf="newProduct" class="gestion__form--input" type="text" id="description" placeholder="Por ej: La famosa flor en forma de cohete" formControlName="description" (input)="changeDescription($event.target.value)">
+            <input *ngIf="!newProduct" class="gestion__form--input" type="text" id="description" value="{{productDetail.description}}" formControlName="description" (input)="changeDescription($event.target.value)">
             <span *ngIf="submittedProduct && !createChangeFields.get('description').valid">Debes rellenar este campo para continuar</span>
         </div>
         <div>
@@ -36,6 +36,6 @@
     </form>
     <div class="gestion__product">
         <p class="gestion__product--title" >Preview del producto</p>
-        <app-single-product [singleProduct]="productDetail" [showEditButton]="newProduct"></app-single-product>
+        <app-single-product [singleProduct]="productDetail" [showInfoProduct]="newProduct" [changesFieldsDinamics]="fieldsValuesDinamics"></app-single-product>
     </div>
 </div>

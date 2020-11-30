@@ -9,16 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class ProductosComponent implements OnInit {
 
   productsList: any = [];
+
+  showGalleryMode: boolean = true;
   
   constructor(private productsServices: ProductsService) { }
 
   ngOnInit(): void {
     this.productsServices.getAllProducts().subscribe(
       (res: any) => {
-        // this.productsList = res;
         this.productsList = res;
       }
     );
+
+  }
+
+
+  changeViewButton(){
+    this.showGalleryMode = !this.showGalleryMode;
   }
 
 }

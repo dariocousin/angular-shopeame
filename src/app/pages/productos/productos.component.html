@@ -2,7 +2,27 @@
 <div class="products">
     <div class="products__header">
         <h2 class="prodcuts__title">Listado de productos ({{productsList.length}})</h2>
-        <h2 class="">Formulario</h2>
+        <!-- <form class="products__form" [formGroup]="searchProducts">
+            <div>
+                <input class="products__form--input" type="search" id="search" formControlName="search" placeholder="Buscador">
+            </div>
+        </form> -->
+        <div class="products__buttons">
+            <button [ngClass]="{'products__buttons--gallery': !showGalleryMode, 'products__buttons--list': showGalleryMode }" (click)="changeViewButton()" >
+                <svg width="17" height="14" viewBox="0 0 17 14" fill="#787885" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 0V4H17V0H5ZM5 14H17V10H5V14ZM5 9H17V5H5V9ZM0 4H4V0H0V4ZM0 14H4V10H0V14ZM0 9H4V5H0V9Z"/>
+                </svg>
+            </button>
+            <!-- <button class="products__buttons--gallery"> -->
+            <button [ngClass]="{'products__buttons--gallery': showGalleryMode, 'products__buttons--list': !showGalleryMode }" (click)="changeViewButton()" >
+                <svg width="17" height="14" viewBox="0 0 17 18" fill="#444444" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 8H8V0H0V8ZM0 18H8V10H0V18ZM10 18H18V10H10V18ZM10 0V8H18V0" />
+                </svg>
+            </button>
+            <div class="products__search">
+                <input class="products__search" type="text" placeholder="Buscador">
+            </div>
+        </div>
     </div>
     <app-gallery-products [galleryProducts]="productsList"></app-gallery-products>
 </div>
